@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image-gallery</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+        h1{
+            text-align: center;
+        }
+        .gallery img{
+            width: 500px;
+            height: 300px;
+            object-fit: cover;
+            padding: 5px;
+            transition: 400ms;
+            
+        }
+        .gallery img:hover{
+            transform: scale(.8);
+            border-radius: 50px;
+           cursor: pointer;
+        }
+        .gallery{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .popup{
+            background-color: rgba(0,0,0,0.567);
+          height: 100vh;
+          position: fixed;
+          top: 0px;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+         align-items: center;
+          display:none;
+        }
+        .popup img{
+            border-radius: 20px;
+        }
+        .popup .icon{
+            color: white;
+            font-size: 57px;
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <h1>Picture Gallery</h1>
+        <div class="gallery">
+            <img src="https://cdn.pixabay.com/photo/2023/11/16/15/17/sea-8392560_1280.jpg"  alt="">
+            <img src="https://media.istockphoto.com/id/1027005714/photo/marine-drive-mumbai.jpg?s=2048x2048&w=is&k=20&c=T3mnvAUpGDyBr1Zh9iewAoQBsMUaCDeI8SGbIU9qy_s=" alt="">
+            <img src="https://media.istockphoto.com/id/937731582/photo/wooden-pier-with-boat.jpg?s=2048x2048&w=is&k=20&c=DO9K5u2oGVSNJ-YA2RrNjFbrBCRDDaji-vswJtKV1UI=" alt="">
+            <img src="https://cdn.pixabay.com/photo/2022/10/10/07/58/mountain-7511116_640.jpg" alt="">
+            <img src="https://cdn.pixabay.com/photo/2016/10/15/18/30/forest-1743206_640.jpg" alt="">
+            <img src="https://cdn.pixabay.com/photo/2016/05/24/16/48/mountains-1412683_640.png" alt="">
+            <img src="https://cdn.pixabay.com/photo/2021/09/03/15/37/mountain-6596074_640.jpg" alt="">
+            <img src="https://cdn.pixabay.com/photo/2016/10/15/18/30/forest-1743206_640.jpg" alt="">
+            <img src="https://cdn.pixabay.com/photo/2020/05/20/06/47/mountain-5195052_640.jpg" alt="">
+            <img src="https://cdn.pixabay.com/photo/2016/10/14/19/21/canyon-1740973_640.jpg" alt="">
+            <img src="https://cdn.pixabay.com/photo/2023/05/08/14/40/mountain-7978781_640.jpg" alt="">
+            <img src="https://cdn.pixabay.com/photo/2016/06/17/04/26/mountain-1462655_640.jpg" alt="">
+        </div>
+    </div>
+    <div class="popup">
+        <img src="https://cdn.pixabay.com/photo/2022/05/19/01/34/bird-7206444_640.jpg" width="700px" height="400px" alt="" id="popup-img">
+        <h2 class="icon" onclick="closepopup()" >&times</h2>
+    </div>
+
+
+
+
+    <script>
+        let image = document.querySelectorAll(".gallery img")
+        let popUpDiv = document.querySelector(".popup")
+        let popUpImg = document.getElementById("popup-img")
+
+
+
+        for (img of image){
+            img.onclick = function(){
+                popUpDiv.style.display = "flex"
+                popUpImg.src= this.src
+        }
+        }
+
+        function closepopup(){
+             popUpDiv.style.display = "none"
+        }
+
+
+
+    </script>
+</body>
+</html>
